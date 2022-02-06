@@ -1,0 +1,23 @@
+{
+  "name": "ts-lib-template",
+  "version": "0.0.1",
+  "description": "Template for TypeScript library",
+  "author": "Mikhail Dezhurko (https://github.com/mdezh)",
+  "license": "MIT",
+  "repository": "git@github.com:mdezh/ts-lib-template.git",
+  "keywords": [
+    "ts",
+    "typescript"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
