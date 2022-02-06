@@ -1,2 +1,2 @@
-# Template for TypeScript library
-A simple template for creating new TypeScript libraries
+# forgetful-circular-buffer
+A simple and lightweight forgetful circular buffer (or circular queue) in TypeScript

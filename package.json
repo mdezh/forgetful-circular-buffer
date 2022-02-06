@@ -1,13 +1,19 @@
 {
-  "name": "ts-lib-template",
+  "name": "forgetful-circular-buffer",
   "version": "0.0.1",
-  "description": "Template for TypeScript library",
+  "description": "A simple forgetful circular buffer",
   "author": "Mikhail Dezhurko (https://github.com/mdezh)",
   "license": "MIT",
-  "repository": "git@github.com:mdezh/ts-lib-template.git",
+  "repository": "git@github.com:mdezh/forgetful-circular-buffer.git",
   "keywords": [
     "ts",
-    "typescript"
+    "typescript",
+    "typed",
+    "circular",
+    "buffer",
+    "queue",
+    "data structures",
+    "lightweight"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
