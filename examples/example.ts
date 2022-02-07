@@ -5,8 +5,18 @@ const buffer = new CircularBuffer<number>(9);
 console.log(buffer.isEmpty());
 // true
 
+try {
+  buffer.read();
+} catch {
+  console.log('Failed to read from empty buffer');
+}
+// "Failed to read from empty buffer"
+
 buffer.write(1);
 buffer.write(2);
+
+console.log(buffer.isEmpty());
+// false
 
 console.log(buffer.getCurrentSize());
 // 2
@@ -35,3 +45,18 @@ for (const item of buffer.readAll()) {
   console.log(item);
 }
 // 6, 7, 8, 9, 10
+
+console.log(buffer.isEmpty());
+// true
+
+for (const item of buffer.readSeveral(10)) {
+  console.log(item);
+}
+// will log nothing in console
+
+buffer.write(11);
+
+for (const item of buffer.readSeveral(10)) {
+  console.log(item);
+}
+// 11

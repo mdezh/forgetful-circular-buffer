@@ -28,4 +28,4 @@ for (const item of buffer.readAll()) {
 // 2, 3
 ```
 
-Also see [the example](examples/example.ts)
+Also see [the example](https://github.com/mdezh/forgetful-circular-buffer/blob/master/examples/example.ts)
