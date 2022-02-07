@@ -4,14 +4,15 @@ export class CircularBuffer<T> {
   private nextReadPosition: number;
   private nextWritePosition: number;
 
-  constructor(bufferSize: number) {
-    bufferSize = Math.floor(bufferSize);
-    if (bufferSize < 1) {
-      throw new Error(`Wrong buffer size: ${bufferSize}. Should be greater than 0`);
+  constructor(maxAmountOfItemsToStore: number) {
+    maxAmountOfItemsToStore = Math.floor(maxAmountOfItemsToStore);
+    if (maxAmountOfItemsToStore < 1) {
+      throw new Error(`Wrong maximum amount of items to store: `
+        + `${maxAmountOfItemsToStore}. Should be greater than 0`);
     }
 
-    this.bufferSize = bufferSize;
-    this.buffer = new Array(bufferSize);
+    this.bufferSize = maxAmountOfItemsToStore + 1;
+    this.buffer = new Array(this.bufferSize);
     this.nextReadPosition = 0;
     this.nextWritePosition = 0;
   }
