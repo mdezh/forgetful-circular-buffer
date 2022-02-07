@@ -36,11 +36,13 @@ console.log(buffer.getCurrentSize());
 console.log(buffer.read());
 // 2 - see previous comment
 
+// buffer.readSeveral() returns a Generator
 for (const item of buffer.readSeveral(3)) {
   console.log(item);
 }
 // 3, 4, 5
 
+// buffer.readAll() returns a Generator
 for (const item of buffer.readAll()) {
   console.log(item);
 }

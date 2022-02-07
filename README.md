@@ -22,6 +22,7 @@ console.log(buffer.getCurrentSize());
 console.log(buffer.read());
 // 1
 
+// buffer.readAll() returns a Generator
 for (const item of buffer.readAll()) {
   console.log(item);
 }
