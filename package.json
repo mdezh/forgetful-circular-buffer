@@ -1,6 +1,6 @@
 {
   "name": "forgetful-circular-buffer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple forgetful circular buffer",
   "author": "Mikhail Dezhurko (https://github.com/mdezh)",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "ts",
     "typescript",
     "typed",
+    "forgetful",
     "circular",
     "buffer",
     "queue",
