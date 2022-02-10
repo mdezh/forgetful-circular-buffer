@@ -1,7 +1,7 @@
 # Forgetful circular buffer
 A simple forgetful circular buffer (or circular queue) in TypeScript
 - Tiny and lightweight
-- Dependency-free
+- Dependency-free (uses devDependencies only)
 
 # Usage
 ``` TypeScript
