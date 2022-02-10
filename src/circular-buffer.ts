@@ -5,13 +5,13 @@ export class CircularBuffer<T> {
   private nextWritePosition: number;
 
   constructor(maxAmountOfItemsToStore: number) {
-    maxAmountOfItemsToStore = Math.floor(maxAmountOfItemsToStore);
-    if (maxAmountOfItemsToStore < 1) {
+    const maxAmountOfItemsTruncated = Math.floor(maxAmountOfItemsToStore);
+    if (maxAmountOfItemsTruncated < 1) {
       throw new Error(`Wrong maximum amount of items to store: `
-        + `${maxAmountOfItemsToStore}. Should be greater than 0`);
+        + `${maxAmountOfItemsTruncated}. Should be greater than 0`);
     }
 
-    this.bufferSize = maxAmountOfItemsToStore + 1;
+    this.bufferSize = maxAmountOfItemsTruncated + 1;
     this.buffer = new Array(this.bufferSize);
     this.nextReadPosition = 0;
     this.nextWritePosition = 0;
@@ -44,20 +44,21 @@ export class CircularBuffer<T> {
     return result;
   }
 
-  *readSeveral(maxAmountToRead: number): Generator<T, void> {
-    while (!this.isEmpty() && maxAmountToRead-- > 0) {
+  * readSeveral(maxAmountToRead: number): Generator<T, void> {
+    let counter = 0;
+    while (!this.isEmpty() && counter++ < maxAmountToRead) {
       yield this.read();
     }
   }
 
-  *readAll(): Generator<T, void> {
-    yield *this.readSeveral(this.bufferSize);
+  * readAll(): Generator<T, void> {
+    yield* this.readSeveral(this.bufferSize);
   }
 
   private increasePosition(position: number): number {
-    if (++position === this.bufferSize) {
-      return 0;
-    }
-    return position;
+    const newPosition = position + 1;
+    return newPosition < this.bufferSize ? newPosition : 0;
   }
 }
+
+export default CircularBuffer;
