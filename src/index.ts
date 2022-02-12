@@ -1,1 +1,1 @@
-export * from "./circular-buffer";
+export * from './circular-buffer';

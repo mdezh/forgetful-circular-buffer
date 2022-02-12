@@ -1,4 +1,4 @@
-import { CircularBuffer } from "../src";
+import { CircularBuffer } from '../src';
 
 const buffer = new CircularBuffer<number>(9);
 

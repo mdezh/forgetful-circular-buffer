@@ -7,8 +7,10 @@ export class CircularBuffer<T> {
   constructor(maxAmountOfItemsToStore: number) {
     const maxAmountOfItemsTruncated = Math.floor(maxAmountOfItemsToStore);
     if (maxAmountOfItemsTruncated < 1) {
-      throw new Error(`Wrong maximum amount of items to store: `
-        + `${maxAmountOfItemsTruncated}. Should be greater than 0`);
+      throw new Error(
+        `Wrong maximum amount of items to store: ` +
+          `${maxAmountOfItemsTruncated}. Should be greater than 0`
+      );
     }
 
     this.bufferSize = maxAmountOfItemsTruncated + 1;
@@ -44,14 +46,14 @@ export class CircularBuffer<T> {
     return result;
   }
 
-  * readSeveral(maxAmountToRead: number): Generator<T, void> {
+  *readSeveral(maxAmountToRead: number): Generator<T, void> {
     let counter = 0;
     while (!this.isEmpty() && counter++ < maxAmountToRead) {
       yield this.read();
     }
   }
 
-  * readAll(): Generator<T, void> {
+  *readAll(): Generator<T, void> {
     yield* this.readSeveral(this.bufferSize);
   }
 

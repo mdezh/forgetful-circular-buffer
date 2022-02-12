@@ -1,10 +1,13 @@
 # Forgetful circular buffer
+
 A simple forgetful circular buffer (or circular queue) in TypeScript
+
 - Tiny and lightweight
 - Dependency-free (uses devDependencies only)
 
 # Usage
-``` TypeScript
+
+```TypeScript
 import { CircularBuffer } from "forgetful-circular-buffer";
 
 const buffer = new CircularBuffer<number>(5);
