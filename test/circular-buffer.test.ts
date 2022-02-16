@@ -5,7 +5,7 @@ describe('testing CircularBuffer instance', () => {
     expect(() => new CircularBuffer(10)).not.toThrow();
   });
 
-  it('shall throw if max number of elements is lesser than 1', () => {
+  it('shall throw if max number of elements is less than 1', () => {
     expect(() => new CircularBuffer(0)).toThrow();
   });
 
