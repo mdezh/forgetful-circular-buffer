@@ -36,13 +36,13 @@ describe('testing CircularBuffer instance', () => {
 
   it('shall throw when read from empty buffer', () => {
     expect(() => {
-      const buffer = new CircularBuffer(10);
+      const buffer = new CircularBuffer<number>(10);
       return buffer.read();
     }).toThrow();
   });
 
   it('shall read items from buffer one by one', () => {
-    const buffer = new CircularBuffer(10);
+    const buffer = new CircularBuffer<number>(10);
     buffer.write(1);
     buffer.write(2);
     expect(buffer.read()).toBe(1);
@@ -51,7 +51,7 @@ describe('testing CircularBuffer instance', () => {
   });
 
   it('shall read requested number of items by *readSeveral()', () => {
-    const buffer = new CircularBuffer(10);
+    const buffer = new CircularBuffer<number>(10);
     buffer.write(1);
     buffer.write(2);
     buffer.write(3);
@@ -59,7 +59,7 @@ describe('testing CircularBuffer instance', () => {
   });
 
   it('shall read all items by *readSeveral() if requested number is more than current size', () => {
-    const buffer = new CircularBuffer(10);
+    const buffer = new CircularBuffer<number>(10);
     buffer.write(1);
     buffer.write(2);
     buffer.write(3);
@@ -67,7 +67,7 @@ describe('testing CircularBuffer instance', () => {
   });
 
   it('shall read all items by *readAll()', () => {
-    const buffer = new CircularBuffer(10);
+    const buffer = new CircularBuffer<number>(10);
     buffer.write(1);
     buffer.write(2);
     buffer.write(3);
@@ -76,7 +76,7 @@ describe('testing CircularBuffer instance', () => {
   });
 
   it('shall forget old elements if number of new ones is more than max size', () => {
-    const buffer = new CircularBuffer(3);
+    const buffer = new CircularBuffer<number>(3);
     buffer.write(1);
     buffer.write(2);
     buffer.write(3);
