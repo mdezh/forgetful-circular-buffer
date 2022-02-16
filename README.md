@@ -4,6 +4,7 @@ A simple forgetful circular buffer (or circular queue) in TypeScript
 
 - Tiny and lightweight
 - Dependency-free (uses devDependencies only)
+- 100% unit test coverage
 
 # Usage
 
