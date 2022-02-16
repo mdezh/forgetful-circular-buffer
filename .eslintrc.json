@@ -42,5 +42,20 @@
       }
     ],
     "no-restricted-syntax": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/test/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+      "env": {
+        "jest": true
+      },
+      "settings": {
+        "jest": {
+          "version": 27
+        }
+      },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ]
 }
