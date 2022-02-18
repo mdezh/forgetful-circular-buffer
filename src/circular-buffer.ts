@@ -58,8 +58,8 @@ export class CircularBuffer<T> {
   }
 
   private increasePosition(position: number): number {
-    const newPosition = position + 1;
-    return newPosition < this.bufferSize ? newPosition : 0;
+    const increasedPosition = position + 1;
+    return increasedPosition < this.bufferSize ? increasedPosition : 0;
   }
 }
 
