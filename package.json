@@ -1,6 +1,6 @@
 {
   "name": "forgetful-circular-buffer",
-  "version": "0.1.9",
+  "version": "1.0.0",
   "description": "A simple forgetful circular buffer",
   "author": "Mikhail Dezhurko (https://github.com/mdezh)",
   "license": "MIT",
