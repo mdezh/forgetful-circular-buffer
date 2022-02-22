@@ -1,8 +1,8 @@
 export class CircularBuffer<T> {
-  private bufferSize: number;
-  private buffer: T[];
-  private nextReadPosition: number;
-  private nextWritePosition: number;
+  private _bufferSize: number;
+  private _buffer: T[];
+  private _nextReadPosition: number;
+  private _nextWritePosition: number;
 
   constructor(maxAmountOfItemsToStore: number) {
     const maxAmountOfItemsTruncated = Math.floor(maxAmountOfItemsToStore);
@@ -13,15 +13,15 @@ export class CircularBuffer<T> {
       );
     }
 
-    this.bufferSize = maxAmountOfItemsTruncated + 1;
-    this.buffer = new Array(this.bufferSize);
-    this.nextReadPosition = 0;
-    this.nextWritePosition = 0;
+    this._bufferSize = maxAmountOfItemsTruncated + 1;
+    this._buffer = new Array(this._bufferSize);
+    this._nextReadPosition = 0;
+    this._nextWritePosition = 0;
   }
 
   getCurrentSize(): number {
-    const delta = this.nextWritePosition - this.nextReadPosition;
-    return delta < 0 ? delta + this.bufferSize : delta;
+    const delta = this._nextWritePosition - this._nextReadPosition;
+    return delta < 0 ? delta + this._bufferSize : delta;
   }
 
   isEmpty(): boolean {
@@ -29,10 +29,10 @@ export class CircularBuffer<T> {
   }
 
   write(item: T): void {
-    this.buffer[this.nextWritePosition] = item;
-    this.nextWritePosition = this.increasePosition(this.nextWritePosition);
+    this._buffer[this._nextWritePosition] = item;
+    this._nextWritePosition = this._increasePosition(this._nextWritePosition);
     if (this.isEmpty()) {
-      this.nextReadPosition = this.increasePosition(this.nextReadPosition);
+      this._nextReadPosition = this._increasePosition(this._nextReadPosition);
     }
   }
 
@@ -41,8 +41,8 @@ export class CircularBuffer<T> {
       throw new Error('Failed to read from empty buffer');
     }
 
-    const result = this.buffer[this.nextReadPosition];
-    this.nextReadPosition = this.increasePosition(this.nextReadPosition);
+    const result = this._buffer[this._nextReadPosition];
+    this._nextReadPosition = this._increasePosition(this._nextReadPosition);
     return result;
   }
 
@@ -54,12 +54,12 @@ export class CircularBuffer<T> {
   }
 
   *readAll(): Generator<T, void> {
-    yield* this.readSeveral(this.bufferSize);
+    yield* this.readSeveral(this._bufferSize);
   }
 
-  private increasePosition(position: number): number {
+  private _increasePosition(position: number): number {
     const increasedPosition = position + 1;
-    return increasedPosition < this.bufferSize ? increasedPosition : 0;
+    return increasedPosition < this._bufferSize ? increasedPosition : 0;
   }
 }
 
