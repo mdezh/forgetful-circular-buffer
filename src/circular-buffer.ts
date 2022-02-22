@@ -1,4 +1,5 @@
 export class CircularBuffer<T> {
+  // use _ as prefix for private properties for better minifying by Terser
   private _bufferSize: number;
   private _buffer: T[];
   private _nextReadPosition: number;
